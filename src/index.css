@@ -49,6 +49,10 @@ header img{
   align-items: center;
 }
 
+li{
+  cursor: pointer;
+}
+
 .navbar li:hover{
   border-bottom: 3px solid var(--pgreen);
 }
@@ -57,124 +61,8 @@ header img{
   display: none;
 }
 
-@media only screen and (max-width: 760px) {
-  header .inviteBtn{
-    display: none;
-  }
-
-  .toggle-nav, .toggle-nav-active{
-    display: block;
-    position: absolute;
-    top: 0; right: 0;
-    width: 2em;
-    margin: 2rem;
-    height: 1em;
-    background-size: cover;
-    background-image: url('./images/icon-hamburger.svg');
-  }
-
-  .toggle-nav-active{
-    background-image: url('./images/icon-close.svg');
-    width: 1em;
-    height: 1em;
-  }
-  
-  .toggle-menu{
-    display: none;
-  }
-
-  .toggle-menu-active{
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    top: 0; left: 0; right: 0;
-    background-color: var(--vlgray);
-    border: 1px solid var(--gblue);
-    margin: 5em auto;
-    border-radius: 5px;
-    padding: 20px;
-  }
-
-  .toggle-menu-active li{
-    margin-bottom: 15px;
-    color: var(--pblue);
-    width: 90%;
-    height: 2em;
-    justify-content: center;
-  }
-
-  .heroContainer{
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .heroImg{
-    background-image: url('./images/bg-intro-mobile.svg') !important;
-    background-position: center center !important;
-    height: 60%;
-    order: 1;
-  }
-
-  .heroImg img{
-    width: 90% !important;
-    margin-right: 0 !important;
-  }
-
-  .hero-title{
-    align-items: center;
-    padding-right: 10% !important;
-    order: 5;
-  }
-
-  .hero-title h1, p{
-    text-align: center;
-  }
-
-  .features, .articleList{
-    flex-direction: column;
-  }
-
-  .features p, .featContainer p, 
-  .features h3, .featContainer h2{
-    text-align: center !important;
-  }
-
-  .feature-holder img{
-    align-self: center;
-    max-width: 25%;
-  }
-
-  .featContainer, .artContainer{
-    padding: 5% 10%;
-  }
-
-  footer{
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  footer ul{
-    text-align: center;
-    display: flex !important;
-    flex-direction: column;
-  }
-
-  .social{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  footer .inviteBtn{
-    align-self: center !important;
-  }
-
-  footer h4{
-    text-align: center;
-  }
+button{
+  cursor: pointer;
 }
 
 .inviteBtn, .hero-title button{
@@ -273,6 +161,7 @@ footer h4{
   width: 100%;
   margin-top: -15%;
   margin-right: -35%;
+  object-fit: contain;
 }
 
 .hero-title{
@@ -312,17 +201,29 @@ footer h4{
 .features, .articleList{
   display: flex;
   margin-top: 3em;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .feature-holder{
   display: flex;
   flex-direction: column;
-  margin: 1em;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.feature-holder, .article-holder{
+  max-width: 20%;
+  min-width: 230px;
+}
+
+.feature-holder + .feature-holder{
+  margin-left: 1.5em;
 }
 
 .feature-holder img{
-  width: 35%;
-  margin-bottom: 1em;
+  margin: 1em 0 1em;
 }
 
 .features h3, .featContainer h2, .artContainer h2{
@@ -331,12 +232,15 @@ footer h4{
   margin: 1em 0 1.5em;
 }
 
-.features p, .featContainer p, .artDetails p{
+.featContainer p, .artDetails p{
   color: var(--gblue);
-  text-align: center;
   line-height: 1.5em;
   margin: 0;
   text-align: left;
+}
+
+.feature-holder p{
+  text-align: center;
 }
 
 .artContainer{
@@ -357,6 +261,7 @@ footer h4{
 }
 
 .articleList img{
+  object-fit: cover;
   width: 100%;
   height: 10em;
 }
@@ -377,4 +282,124 @@ footer h4{
 .artDetails p{
   text-align: left;
   margin: 2em 1em;
+}
+
+footer h4{
+  text-align: center;
+}
+
+@media only screen and (max-width: 780px) {
+  header .inviteBtn{
+    display: none;
+  }
+
+  .toggle-nav, .toggle-nav-active{
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 1.5em;
+    margin-right: 2rem;
+    height: 1em;
+    background-size: cover;
+    background-image: url('./images/icon-hamburger.svg');
+    cursor: pointer;
+  }
+
+  .toggle-nav-active{
+    background-image: url('./images/icon-close.svg');
+    width: 1em;
+    height: 1em;
+  }
+  
+  .toggle-menu{
+    display: none;
+  }
+
+  .toggle-menu-active{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    top: 0; left: 0; right: 0;
+    background-color: var(--vlgray);
+    border: 1px solid var(--gblue);
+    margin: 5em auto;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  .toggle-menu-active li{
+    margin-bottom: 15px;
+    color: var(--pblue);
+    width: 90%;
+    height: 2em;
+    justify-content: center;
+  }
+
+  .heroContainer{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroImg{
+    background-image: url('./images/bg-intro-mobile.svg') !important;
+    background-position: center center !important;
+    height: 60%;
+    order: 1;
+  }
+
+  .heroImg img{
+    width: 90% !important;
+    margin-right: 0 !important;
+  }
+
+  .hero-title{
+    align-items: center;
+    padding-right: 10% !important;
+    order: 5;
+  }
+
+  .hero-title h1, p{
+    text-align: center;
+  }
+
+  .featContainer p, 
+  .features h3, .featContainer h2{
+    text-align: center !important;
+  }
+
+  .featContainer, .artContainer{
+    padding: 5% 10%;
+  }
+
+  .feature-holder, .article-holder{
+    max-width: 400px;
+  }
+
+  .feature-holder + .feature-holder{
+    margin-left: 0;
+  }
+
+  footer{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer ul{
+    text-align: center;
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .social{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  footer .inviteBtn{
+    align-self: center !important;
+  }
 }
